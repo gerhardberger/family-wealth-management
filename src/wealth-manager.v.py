@@ -47,4 +47,3 @@ def inherit():
 
     selfdestruct(self.heir)
 
-

@@ -1,11 +1,12 @@
 pragma solidity ^0.4.21;
 
+// HW01: Family wealth management
 contract WealthManager {
 
     address partner_1;
     address partner_2;
     address heir;
-    
+
     uint256 last_access;
     uint256 value;
 
@@ -13,9 +14,9 @@ contract WealthManager {
         partner_1 = msg.sender;
         partner_2 = _partner;
         heir = _heir;
-        
+
         last_access = now;
-        
+
         value = msg.value;
     }
 
@@ -36,7 +37,7 @@ contract WealthManager {
 
     function inherit() public {
         require(now >= (last_access + 60 * 60 * 24 * 365));
-        
+
         selfdestruct(heir);
     }
 
