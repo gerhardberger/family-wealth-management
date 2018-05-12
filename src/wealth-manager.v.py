@@ -18,8 +18,6 @@ def __init__(_partner: address, _heir: address):
 @public
 @payable
 def pay():
-    assert msg.sender == self.partner_1 or msg.sender == self.partner_2
-
     assert block.timestamp <= (self.last_access + 60 * 60 * 24 * 365)
 
     self.value += msg.value
